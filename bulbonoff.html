@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightonoff</title>
+    <script>
+        function lightoff(){
+            document.getElementById('myphoto').src="bulb (2).png"
+        }
+        function lighton(){
+            document.getElementById('myphoto').src="bulb (1).png"
+        }
+    </script>
+</head>
+<body>
+    <button onclick="lighton()">Light On</button>
+    <img src="bulb (1).png" id="myphoto" width="300px">
+    <button onclick="lightoff()">Light Off</button>
+
+    
+</body>
+</html>

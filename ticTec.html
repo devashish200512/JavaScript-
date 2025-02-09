@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic_Tac</title>
+    <style>
+        table{
+            margin: 0px auto;
+            text-align: center;
+
+        }
+        table,tr,td{
+            border: 5px solid red;
+            border-collapse:collapse ;
+        }
+        tr{
+            width: 450px;
+            height: 150px;
+        }
+        td{
+            width: 150px;
+            height: 150px;
+        }
+        td img{
+            width: 120px;
+            height: 120px;
+        }
+    </style>
+
+    <script>
+        var trun=0;  //0===O  x===1
+        var state=[2,2,2,2,2,2,2,2,2];  //==blank
+        var gamestatus=true;
+        function ontap(e,i){
+            // e===Element; i===index;
+            if(state[i]==2 && gamestatus==true){
+                if(trun===0){
+                    e.innerHTML="<img src='O.jpeg'/>";
+                    var audio=new Audio("Sound.wav");
+                    audio.play();
+                    trun=1;
+                    state[i]=0;
+                    document.getElementById("h1").innerHTML="x Player Turn"
+                }
+                else{
+                    e.innerHTML="<img src='x.jpeg'/>";
+                    var audio=new Audio("Sound.wav");
+                    audio.play();
+                    trun=0;
+                    state[i]=1;
+                    document.getElementById("h1").innerHTML="O Player Turn"
+
+                }
+            }
+            console.log(state);
+
+        }
+
+    </script>
+</head>
+<body>
+    <center>
+        <h1>Tic-Tac-Toe</h1>
+        <h1 id="h1">O Player turn</h1>
+    </center>
+    <table>
+        <tr>
+            <td onclick="ontap(this,0)"></td>
+            <td onclick="ontap(this,1)"></td>
+            <td onclick="ontap(this,2)"></td>
+        </tr>
+        <tr>
+            <td onclick="ontap(this,3)"></td>
+            <td onclick="ontap(this,4)"></td>
+            <td onclick="ontap(this,5)"></td>
+        </tr>
+        <tr>
+            <td onclick="ontap(this,6)"></td>
+            <td onclick="ontap(this,7)"></td>
+            <td onclick="ontap(this,8)"></td>
+        </tr>
+    </table>
+</body>
+</html>
