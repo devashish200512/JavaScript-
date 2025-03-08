@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(24, 65, 201);
+        }
+        .container {
+            padding: 10px;
+            background-color: rgb(222, 242, 244);
+            height: 300px;
+            width: 400px;
+            border-radius: 10%;
+            text-align: center;
+            border: 5px solid black;
+        }
+        h1{
+            
+            border-radius: 5px;
+            
+        }
+        input{
+            height: 32px;
+            width: auto;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        button {
+            height: 37px;
+            width: 100px;
+            color: blanchedalmond;
+            background-color: rgb(17, 21, 156);
+            border: 1px solid black;
+            border-radius: 26%;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="container">
+        <h1>Weather-box</h1>
+        <div class="weather-box">
+            <input type="text" id="city">
+            <button onclick="getWeather()">Get Weather</button>
+            <div class="weather-result">
+                <h2 id="city-name"></h2>
+                <p id="temp"></p>
+                <p id="desc"></p>
+            </div>
+        </div>
+    </div>
+</center>
+
+    <script>
+        const apiKey = "8b718b4d2935b7625fe3a17cf8ced283";
+
+        async function getWeather() {
+            const city = document.getElementById('city').value;
+            if (!city) {
+                alert("Please enter a city name");
+                return;
+            }
+
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.cod != 200) {
+                    console.log(data.message);
+                    return;
+                }
+
+                document.getElementById('city-name').innerHTML = `Weather in ${data.name}`;
+                document.getElementById('temp').innerText = `Temperature: ${data.main.temp}°C`;
+                document.getElementById('desc').innerText = `Description: ${data.weather[0].description}`;
+            } catch (error) {
+                console.log('Fetching data error', error);
+            }
+        }
+    </script>
+</body>
+</html>
