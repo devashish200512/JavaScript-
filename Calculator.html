@@ -8,12 +8,11 @@
 
 <style>
 table,tr,td{
-    border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
     height: 80px;
     width: 280px;
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: rgb(24, 24, 24);
 }
 table tr td{
@@ -42,11 +41,14 @@ input{
     background-color: black;
     color: white;
     font-size: xx-large;
-    text-align: center;
+    text-align: right;
+    border: 2px solid orange;
+    border-radius: 20px;
 }
 .equal{
     background-color: orangered;
 }
+.
 
 </style>
 <script>
@@ -76,7 +78,7 @@ input{
 </script>
 </head>
 <body>
-    <h1 style="text-align: center;">Calculator</h1>
+    <h1 style ="text-align: center;">Calculator</h1>
     
     <center>
         <table>
@@ -84,28 +86,28 @@ input{
             <td colspan="4"><input type="text" id="t1"/></td>
         </tr>
         <tr>
-            <td><button onclick="cleardata()">AC</button></td>
-            <td><button onclick="btnpress('%')">%</button></td>
-            <td><button onclick="backpress()">⌫</button></td>
-            <td><button onclick="btnpress('/')">/</button></td>
+            <td><button  class="equal" onclick="cleardata()">AC</button></td>
+            <td><button class="equal" onclick="btnpress('%')">%</button></td>
+            <td><button class="equal" onclick="backpress()">⌫</button></td>
+            <td><button class="equal" onclick="btnpress('/')">/</button></td>
         </tr>
         <tr>
             <td><button onclick="btnpress('7')">7</button></td>
             <td><button onclick="btnpress('8')">8</button></td>
             <td><button onclick="btnpress('9')">9</button></td>
-            <td><button onclick="btnpress('*')">*</button></td>
+            <td><button class="equal" onclick="btnpress('*')">*</button></td>
         </tr>
         <tr>
             <td><button onclick="btnpress('6')">6</button></td>
             <td><button onclick="btnpress('5')">5</button></td>
             <td><button onclick="btnpress('4')">4</button></td>
-            <td><button onclick="btnpress('-')">-</button></td>
+            <td><button class="equal"onclick="btnpress('-')">-</button></td>
         </tr>
         <tr>
             <td><button onclick="btnpress('3')">3</button></td>
             <td><button onclick="btnpress('2')">2</button></td>
             <td><button onclick="btnpress('1')">1</button></td>
-            <td><button onclick="btnpress('+')">+</button></td>
+            <td><button class="equal"onclick="btnpress('+')">+</button></td>
         </tr>
         <tr>
             <td><button onclick="btnpress('00')">00</button></td>
